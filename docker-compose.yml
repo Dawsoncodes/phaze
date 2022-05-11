@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  node:
+    container_name: node_api
+    build: ./api
+    environment:
+      - NODE_ENV=production
+      - AUTH_TOKEN=some_random_token
+    ports:
+      - "3000:3000"
+
+  service:
+    container_name: node_service
+    build: ./service
+    environment:
+      - NODE_ENV=production
+      - POLYGON_API_KEY=your_api_key
